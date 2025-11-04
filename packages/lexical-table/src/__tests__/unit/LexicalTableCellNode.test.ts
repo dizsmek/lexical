@@ -117,7 +117,7 @@ describe('LexicalTableCellNode tests', () => {
                     style="border: 1px solid black; width: 75px; vertical-align: top; text-align: start;">
                     <p>
                       <test-decorator></test-decorator>
-                      <span style="white-space: pre-wrap;">1</span>
+                      <span>1</span>
                     </p>
                   </td>
                 </tr>
@@ -148,12 +148,12 @@ describe('LexicalTableCellNode tests', () => {
                   <td
                     style="border: 1px solid black; width: 75px; vertical-align: top; text-align: start;">
                     <p>
-                      <span style="white-space: pre-wrap;">1</span>
+                      <span>1</span>
                       <br />
                       <br />
                       <br />
                       <br />
-                      <span style="white-space: pre-wrap;">2</span>
+                      <span>2</span>
                     </p>
                   </td>
                 </tr>
@@ -181,13 +181,13 @@ describe('LexicalTableCellNode tests', () => {
                   <td
                     style="border: 1px solid black; width: 75px; vertical-align: top; text-align: start;">
                     <p>
-                      <span style="white-space: pre-wrap;">1</span>
+                      <span>1</span>
                     </p>
                     <p>
                       <br />
                     </p>
                     <p>
-                      <span style="white-space: pre-wrap;">2</span>
+                      <span>2</span>
                     </p>
                   </td>
                 </tr>

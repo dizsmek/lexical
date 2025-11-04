@@ -30,22 +30,22 @@ describe('Lexical List StrictIndentTransform tests', () => {
       const output = html`
         <ul>
           <li value="1">
-            <span style="white-space: pre-wrap;">0</span>
+            <span>0</span>
           </li>
           <li value="2">
             <ul>
               <li value="1">
-                <span style="white-space: pre-wrap;">1</span>
+                <span>1</span>
               </li>
               <li value="2">
                 <ul>
                   <li value="1">
-                    <span style="white-space: pre-wrap;">2</span>
+                    <span>2</span>
                   </li>
                   <li value="2">
                     <ul>
                       <li value="1">
-                        <span style="white-space: pre-wrap;">3</span>
+                        <span>3</span>
                       </li>
                     </ul>
                   </li>
@@ -60,7 +60,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
         html`
           <ul>
             <li>
-              <span style="white-space: pre-wrap;">0</span>
+              <span>0</span>
             </li>
             <li>
               <ul>
@@ -70,7 +70,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
                       <ul>
                         <li>
                           <!-- Indent: 3 -->
-                          <span style="white-space: pre-wrap;">1</span>
+                          <span>1</span>
                         </li>
                       </ul>
                     </li>
@@ -80,13 +80,13 @@ describe('Lexical List StrictIndentTransform tests', () => {
                   <ul>
                     <li>
                       <!-- Indent: 2 -->
-                      <span style="white-space: pre-wrap;">2</span>
+                      <span>2</span>
                     </li>
                     <li>
                       <ul>
                         <li>
                           <!-- Indent: 3 -->
-                          <span style="white-space: pre-wrap;">3</span>
+                          <span>3</span>
                         </li>
                       </ul>
                     </li>
@@ -99,7 +99,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
         html`
           <ul>
             <li>
-              <span style="white-space: pre-wrap;">0</span>
+              <span>0</span>
             </li>
             <li>
               <ul>
@@ -107,7 +107,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
                   <ul>
                     <li>
                       <!-- Indent: 2 -->
-                      <span style="white-space: pre-wrap;">1</span>
+                      <span>1</span>
                     </li>
                   </ul>
                 </li>
@@ -119,7 +119,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
                           <ul>
                             <li>
                               <!-- Indent: 4 -->
-                              <span style="white-space: pre-wrap;">2</span>
+                              <span>2</span>
                             </li>
                           </ul>
                         </li>
@@ -129,7 +129,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
                       <ul>
                         <li>
                           <!-- Indent: 3 -->
-                          <span style="white-space: pre-wrap;">3</span>
+                          <span>3</span>
                         </li>
                       </ul>
                     </li>
@@ -142,7 +142,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
         html`
           <ul>
             <li>
-              <span style="white-space: pre-wrap;">0</span>
+              <span>0</span>
             </li>
             <li>
               <ul>
@@ -150,7 +150,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
                   <ul>
                     <li>
                       <!-- Indent: 2 -->
-                      <span style="white-space: pre-wrap;">1</span>
+                      <span>1</span>
                     </li>
                   </ul>
                 </li>
@@ -162,7 +162,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
                           <ul>
                             <li>
                               <!-- Indent: 4 -->
-                              <span style="white-space: pre-wrap;">2</span>
+                              <span>2</span>
                             </li>
                           </ul>
                         </li>
@@ -176,7 +176,7 @@ describe('Lexical List StrictIndentTransform tests', () => {
                               <ul>
                                 <li>
                                   <!-- Indent: 5 -->
-                                  <span style="white-space: pre-wrap;">3</span>
+                                  <span>3</span>
                                 </li>
                               </ul>
                             </li>

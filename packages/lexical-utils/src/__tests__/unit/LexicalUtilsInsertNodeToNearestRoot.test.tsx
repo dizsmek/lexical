@@ -47,7 +47,7 @@ describe('LexicalUtils#insertNodeToNearestRoot', () => {
     {
       _: 'insert into paragraph in between two text nodes',
       expectedHtml:
-        '<p><span style="white-space: pre-wrap;">Hello</span></p><test-decorator></test-decorator><p><span style="white-space: pre-wrap;">world</span></p>',
+        '<p><span>Hello</span></p><test-decorator></test-decorator><p><span>world</span></p>',
       initialHtml: '<p><span>Helloworld</span></p>',
       selectionOffset: 5, // Selection on text node after "Hello" world
       selectionPath: [0, 0],
@@ -56,13 +56,13 @@ describe('LexicalUtils#insertNodeToNearestRoot', () => {
       _: 'insert into nested list items',
       expectedHtml:
         '<ul>' +
-        '<li><span style="white-space: pre-wrap;">Before</span></li>' +
-        '<li><ul><li><span style="white-space: pre-wrap;">Hello</span></li></ul></li>' +
+        '<li><span>Before</span></li>' +
+        '<li><ul><li><span>Hello</span></li></ul></li>' +
         '</ul>' +
         '<test-decorator></test-decorator>' +
         '<ul>' +
-        '<li><ul><li><span style="white-space: pre-wrap;">world</span></li></ul></li>' +
-        '<li><span style="white-space: pre-wrap;">After</span></li>' +
+        '<li><ul><li><span>world</span></li></ul></li>' +
+        '<li><span>After</span></li>' +
         '</ul>',
       initialHtml:
         '<ul>' +
@@ -83,7 +83,7 @@ describe('LexicalUtils#insertNodeToNearestRoot', () => {
     {
       _: 'insert in the end of paragraph',
       expectedHtml:
-        '<p><span style="white-space: pre-wrap;">Hello world</span></p>' +
+        '<p><span>Hello world</span></p>' +
         '<test-decorator></test-decorator>' +
         '<p><br></p>',
       initialHtml: '<p>Hello world</p>',
@@ -95,7 +95,7 @@ describe('LexicalUtils#insertNodeToNearestRoot', () => {
       expectedHtml:
         '<p><br></p>' +
         '<test-decorator></test-decorator>' +
-        '<p><span style="white-space: pre-wrap;">Hello world</span></p>',
+        '<p><span>Hello world</span></p>',
       initialHtml: '<p>Hello world</p>',
       selectionOffset: 0, // Selection on text node before "Hello" world
       selectionPath: [0, 0],
@@ -105,8 +105,8 @@ describe('LexicalUtils#insertNodeToNearestRoot', () => {
       expectedHtml:
         '<test-decorator></test-decorator>' +
         '<test-decorator></test-decorator>' +
-        '<p><span style="white-space: pre-wrap;">Before</span></p>' +
-        '<p><span style="white-space: pre-wrap;">After</span></p>',
+        '<p><span>Before</span></p>' +
+        '<p><span>After</span></p>',
       initialHtml:
         '<test-decorator></test-decorator>' +
         '<p><span>Before</span></p>' +
@@ -117,9 +117,9 @@ describe('LexicalUtils#insertNodeToNearestRoot', () => {
     {
       _: 'insert with selection on root child',
       expectedHtml:
-        '<p><span style="white-space: pre-wrap;">Before</span></p>' +
+        '<p><span>Before</span></p>' +
         '<test-decorator></test-decorator>' +
-        '<p><span style="white-space: pre-wrap;">After</span></p>',
+        '<p><span>After</span></p>',
       initialHtml: '<p>Before</p><p>After</p>',
       selectionOffset: 1,
       selectionPath: [],
@@ -127,8 +127,7 @@ describe('LexicalUtils#insertNodeToNearestRoot', () => {
     {
       _: 'insert with selection on root end',
       expectedHtml:
-        '<p><span style="white-space: pre-wrap;">Before</span></p>' +
-        '<test-decorator></test-decorator>',
+        '<p><span>Before</span></p>' + '<test-decorator></test-decorator>',
       initialHtml: '<p>Before</p>',
       selectionOffset: 1,
       selectionPath: [],

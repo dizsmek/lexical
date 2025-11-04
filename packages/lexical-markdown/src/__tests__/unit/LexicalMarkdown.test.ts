@@ -269,32 +269,32 @@ describe('Markdown', () => {
 
   const IMPORT_AND_EXPORT: Input = [
     {
-      html: '<h1><span style="white-space: pre-wrap;">Hello world</span></h1>',
+      html: '<h1><span>Hello world</span></h1>',
       md: '# Hello world',
     },
     {
-      html: '<h2><span style="white-space: pre-wrap;">Hello world</span></h2>',
+      html: '<h2><span>Hello world</span></h2>',
       md: '## Hello world',
     },
     {
-      html: '<h3><span style="white-space: pre-wrap;">Hello world</span></h3>',
+      html: '<h3><span>Hello world</span></h3>',
       md: '### Hello world',
     },
     {
-      html: '<h4><span style="white-space: pre-wrap;">Hello world</span></h4>',
+      html: '<h4><span>Hello world</span></h4>',
       md: '#### Hello world',
     },
     {
-      html: '<h5><span style="white-space: pre-wrap;">Hello world</span></h5>',
+      html: '<h5><span>Hello world</span></h5>',
       md: '##### Hello world',
     },
     {
-      html: '<h6><span style="white-space: pre-wrap;">Hello world</span></h6>',
+      html: '<h6><span>Hello world</span></h6>',
       md: '###### Hello world',
     },
     {
       // Multiline paragraphs: https://spec.commonmark.org/dingus/?text=Hello%0Aworld%0A!
-      html: '<p><span style="white-space: pre-wrap;">Hello world !</span></p>',
+      html: '<p><span>Hello world !</span></p>',
       md: ['Hello', 'world', '!'].join('\n'),
       shouldMergeAdjacentLines: true,
       skipExport: true,
@@ -303,218 +303,218 @@ describe('Markdown', () => {
       // Multiline paragraphs
       // TO-DO: It would be nice to support also hard line breaks (<br>) as \ or double spaces
       // See https://spec.commonmark.org/0.31.2/#hard-line-breaks.
-      // Example: '<p><span style="white-space: pre-wrap;">Hello\\\nworld\\\n!</span></p>',
-      html: '<p><span style="white-space: pre-wrap;">Hello<br>world<br>!</span></p>',
+      // Example: '<p><span>Hello\\\nworld\\\n!</span></p>',
+      html: '<p><span>Hello<br>world<br>!</span></p>',
       md: ['Hello', 'world', '!'].join('\n'),
       skipImport: true,
     },
     {
-      html: '<blockquote><span style="white-space: pre-wrap;">Hello</span><br><span style="white-space: pre-wrap;">world!</span></blockquote>',
+      html: '<blockquote><span>Hello</span><br><span>world!</span></blockquote>',
       md: '> Hello\n> world!',
     },
     // TO-DO: <br> should be preserved
     // {
-    //   html: '<ul><li value="1"><span style="white-space: pre-wrap;">Hello</span></li><li value="2"><span style="white-space: pre-wrap;">world<br>!<br>!</span></li></ul>',
+    //   html: '<ul><li value="1"><span>Hello</span></li><li value="2"><span>world<br>!<br>!</span></li></ul>',
     //   md: '- Hello\n- world<br>!<br>!',
     //   skipImport: true,
     // },
     {
       // Multiline list items: https://spec.commonmark.org/dingus/?text=-%20Hello%0A-%20world%0A!%0A!
-      html: '<ul><li value="1"><span style="white-space: pre-wrap;">Hello</span></li><li value="2"><span style="white-space: pre-wrap;">world ! !</span></li></ul>',
+      html: '<ul><li value="1"><span>Hello</span></li><li value="2"><span>world ! !</span></li></ul>',
       md: '- Hello\n- world\n!\n!',
       shouldMergeAdjacentLines: true,
       skipExport: true,
     },
     {
-      html: '<ul><li value="1"><span style="white-space: pre-wrap;">Hello</span></li><li value="2"><span style="white-space: pre-wrap;">world</span></li></ul>',
+      html: '<ul><li value="1"><span>Hello</span></li><li value="2"><span>world</span></li></ul>',
       md: '- Hello\n- world',
     },
     {
-      html: '<ul><li value="1"><span style="white-space: pre-wrap;">Level 1</span></li><li value="2"><ul><li value="1"><span style="white-space: pre-wrap;">Level 2</span></li><li value="2"><ul><li value="1"><span style="white-space: pre-wrap;">Level 3</span></li></ul></li></ul></li></ul><p><span style="white-space: pre-wrap;">Hello world</span></p>',
+      html: '<ul><li value="1"><span>Level 1</span></li><li value="2"><ul><li value="1"><span>Level 2</span></li><li value="2"><ul><li value="1"><span>Level 3</span></li></ul></li></ul></li></ul><p><span>Hello world</span></p>',
       md: '- Level 1\n    - Level 2\n        - Level 3\n\nHello world',
     },
     // List indentation with tabs, Import only: export will use "    " only for one level of indentation
     {
-      html: '<ul><li value="1"><span style="white-space: pre-wrap;">Level 1</span></li><li value="2"><ul><li value="1"><span style="white-space: pre-wrap;">Level 2</span></li><li value="2"><ul><li value="1"><span style="white-space: pre-wrap;">Level 3</span></li></ul></li></ul></li></ul><p><span style="white-space: pre-wrap;">Hello world</span></p>',
+      html: '<ul><li value="1"><span>Level 1</span></li><li value="2"><ul><li value="1"><span>Level 2</span></li><li value="2"><ul><li value="1"><span>Level 3</span></li></ul></li></ul></li></ul><p><span>Hello world</span></p>',
       md: '- Level 1\n\t- Level 2\n  \t  - Level 3\n\nHello world',
       skipExport: true,
     },
     {
       // Import only: export will use "-" instead of "*"
-      html: '<ul><li value="1"><span style="white-space: pre-wrap;">Level 1</span></li><li value="2"><ul><li value="1"><span style="white-space: pre-wrap;">Level 2</span></li><li value="2"><ul><li value="1"><span style="white-space: pre-wrap;">Level 3</span></li></ul></li></ul></li></ul><p><span style="white-space: pre-wrap;">Hello world</span></p>',
+      html: '<ul><li value="1"><span>Level 1</span></li><li value="2"><ul><li value="1"><span>Level 2</span></li><li value="2"><ul><li value="1"><span>Level 3</span></li></ul></li></ul></li></ul><p><span>Hello world</span></p>',
       md: '* Level 1\n    * Level 2\n        * Level 3\n\nHello world',
       skipExport: true,
     },
     {
-      html: '<ol><li value="1"><span style="white-space: pre-wrap;">Hello</span></li><li value="2"><span style="white-space: pre-wrap;">world</span></li></ol>',
+      html: '<ol><li value="1"><span>Hello</span></li><li value="2"><span>world</span></li></ol>',
       md: '1. Hello\n2. world',
     },
     {
-      html: '<ol start="25"><li value="25"><span style="white-space: pre-wrap;">Hello</span></li><li value="26"><span style="white-space: pre-wrap;">world</span></li></ol>',
+      html: '<ol start="25"><li value="25"><span>Hello</span></li><li value="26"><span>world</span></li></ol>',
       md: '25. Hello\n26. world',
     },
     {
-      html: '<p><i><em style="white-space: pre-wrap;">Hello</em></i><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><em>Hello</em><span> world</span></p>',
       md: '*Hello* world',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">Hello</strong></b><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><strong>Hello</strong><span> world</span></p>',
       md: '**Hello** world',
     },
     {
-      html: '<p><i><b><strong style="white-space: pre-wrap;">Hello</strong></b></i><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><strong><em>Hello</em></strong><span> world</span></p>',
       md: '***Hello*** world',
     },
     {
-      html: '<p><code spellcheck="false" style="white-space: pre-wrap;"><span>Hello</span></code><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><code spellcheck="false">Hello</code><span> world</span></p>',
       md: '`Hello` world',
     },
     {
-      html: '<p><code spellcheck="false" style="white-space: pre-wrap;"><span>Backtick\\</span></code><span style="white-space: pre-wrap;"> after backslash</span></p>',
+      html: '<p><code spellcheck="false">Backtick\\</code><span> after backslash</span></p>',
       md: '`Backtick\\` after backslash',
     },
     {
-      html: '<p><code spellcheck="false" style="white-space: pre-wrap;"><span>Backtick</span></code><span style="white-space: pre-wrap;">\\ before backslash</span></p>',
+      html: '<p><code spellcheck="false">Backtick</code><span>\\ before backslash</span></p>',
       md: '`Backtick`\\\\ before backslash',
     },
     {
-      html: '<p><s><span style="white-space: pre-wrap;">Hello</span></s><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><s>Hello</s><span> world</span></p>',
       md: '~~Hello~~ world',
     },
     {
-      html: '<p><code spellcheck="false" style="white-space: pre-wrap;"><span>hello$</span></code></p>',
+      html: '<p><code spellcheck="false">hello$</code></p>',
       md: '`hello$`',
     },
     {
-      html: '<p><code spellcheck="false" style="white-space: pre-wrap;"><span>$$hello</span></code></p>',
+      html: '<p><code spellcheck="false">$$hello</code></p>',
       md: '`$$hello`',
     },
     {
-      html: '<p><a href="https://lexical.dev"><span style="white-space: pre-wrap;">Hello</span></a><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><a href="https://lexical.dev"><span>Hello</span></a><span> world</span></p>',
       md: '[Hello](https://lexical.dev) world',
     },
     {
-      html: '<p><a href="https://lexical.dev" title="Hello world"><span style="white-space: pre-wrap;">Hello</span></a><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><a href="https://lexical.dev" title="Hello world"><span>Hello</span></a><span> world</span></p>',
       md: '[Hello](https://lexical.dev "Hello world") world',
     },
     {
-      html: '<p><a href="https://lexical.dev" title="Title with \\&quot; escaped character"><span style="white-space: pre-wrap;">Hello</span></a><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><a href="https://lexical.dev" title="Title with \\&quot; escaped character"><span>Hello</span></a><span> world</span></p>',
       md: '[Hello](https://lexical.dev "Title with \\" escaped character") world',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">Hello </span><s><i><b><strong style="white-space: pre-wrap;">world</strong></b></i></s><span style="white-space: pre-wrap;">!</span></p>',
+      html: '<p><span>Hello </span><s><strong><em>world</em></strong></s><span>!</span></p>',
       md: 'Hello ***~~world~~***!',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">Hello </strong></b><s><b><strong style="white-space: pre-wrap;">world</strong></b></s><span style="white-space: pre-wrap;">!</span></p>',
+      html: '<p><strong>Hello </strong><s><strong>world</strong></s><span>!</span></p>',
       md: '**Hello ~~world~~**!',
       mdAfterExport: '**Hello&#32;~~world~~**!',
     },
     {
-      html: '<p><s><b><strong style="white-space: pre-wrap;">Hello </strong></b></s><s><i><b><strong style="white-space: pre-wrap;">world</strong></b></i></s><s><span style="white-space: pre-wrap;">!</span></s></p>',
+      html: '<p><s><strong>Hello </strong></s><s><strong><em>world</em></strong></s><s>!</s></p>',
       md: '**~~Hello *world*~~**~~!~~',
       mdAfterExport: '**~~Hello&#32;*world*~~**~~!~~',
     },
     {
-      html: '<p><i><em style="white-space: pre-wrap;">Hello </em></i><i><b><strong style="white-space: pre-wrap;">world</strong></b></i><i><em style="white-space: pre-wrap;">!</em></i></p>',
+      html: '<p><em>Hello </em><strong><em>world</em></strong><em>!</em></p>',
       md: '*Hello **world**!*',
       mdAfterExport: '*Hello&#32;**world**!*',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">hello world</span></p>',
+      html: '<p><span>hello world</span></p>',
       md: 'hello\nworld',
       shouldMergeAdjacentLines: true,
       skipExport: true,
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">hello</span><br><span style="white-space: pre-wrap;">world</span></p>',
+      html: '<p><span>hello</span><br><span>world</span></p>',
       md: 'hello\nworld',
       shouldMergeAdjacentLines: false,
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">hello</span></p><p><span style="white-space: pre-wrap;">world</span></p>',
+      html: '<p><span>hello</span></p><p><span>world</span></p>',
       md: 'hello\nworld',
       shouldPreserveNewLines: true,
     },
     {
-      html: '<h1><span style="white-space: pre-wrap;">Hello</span></h1><p><br></p><p><br></p><p><br></p><p><b><strong style="white-space: pre-wrap;">world</strong></b><span style="white-space: pre-wrap;">!</span></p>',
+      html: '<h1><span>Hello</span></h1><p><br></p><p><br></p><p><br></p><p><strong>world</strong><span>!</span></p>',
       md: '# Hello\n\n\n\n**world**!',
       shouldPreserveNewLines: true,
     },
     {
-      html: '<h1><span style="white-space: pre-wrap;">Hello</span></h1><p><span style="white-space: pre-wrap;">hi</span></p><p><br></p><p><b><strong style="white-space: pre-wrap;">world</strong></b></p><p><br></p><p><span style="white-space: pre-wrap;">hi</span></p><blockquote><span style="white-space: pre-wrap;">hello</span><br><span style="white-space: pre-wrap;">hello</span></blockquote><p><br></p><h1><span style="white-space: pre-wrap;">hi</span></h1><p><br></p><p><span style="white-space: pre-wrap;">hi</span></p>',
+      html: '<h1><span>Hello</span></h1><p><span>hi</span></p><p><br></p><p><strong>world</strong></p><p><br></p><p><span>hi</span></p><blockquote><span>hello</span><br><span>hello</span></blockquote><p><br></p><h1><span>hi</span></h1><p><br></p><p><span>hi</span></p>',
       md: '# Hello\nhi\n\n**world**\n\nhi\n> hello\n> hello\n\n# hi\n\nhi',
       shouldPreserveNewLines: true,
     },
     {
       // Import only: export will use * instead of _ due to registered transformers order
-      html: '<p><i><em style="white-space: pre-wrap;">Hello</em></i><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><em>Hello</em><span> world</span></p>',
       md: '_Hello_ world',
       skipExport: true,
     },
     {
       // Import only: export will use * instead of _ due to registered transformers order
-      html: '<p><b><strong style="white-space: pre-wrap;">Hello</strong></b><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><strong>Hello</strong><span> world</span></p>',
       md: '__Hello__ world',
       skipExport: true,
     },
     {
       // Import only: export will use * instead of _ due to registered transformers order
-      html: '<p><i><b><strong style="white-space: pre-wrap;">Hello</strong></b></i><span style="white-space: pre-wrap;"> world</span></p>',
+      html: '<p><strong><em>Hello</em></strong><span> world</span></p>',
       md: '___Hello___ world',
       skipExport: true,
     },
     {
       // Import only: export will use * instead of _ due to registered transformers order
-      html: '<p><span style="white-space: pre-wrap;">Hello </span><s><i><b><strong style="white-space: pre-wrap;">world</strong></b></i></s><span style="white-space: pre-wrap;">!</span></p>',
+      html: '<p><span>Hello </span><s><strong><em>world</em></strong></s><span>!</span></p>',
       md: 'Hello ~~__*world*__~~!',
       skipExport: true,
     },
     {
-      html: '<pre spellcheck="false"><span style="white-space: pre-wrap;">Single line Code</span></pre>',
+      html: '<pre spellcheck="false"><span>Single line Code</span></pre>',
       md: '```Single line Code```', // Ensure that "Single" is not read as the language by the code transformer. It should only be read as the language if there is a multi-line code block
       skipExport: true, // Export will fail, as the code transformer will add new lines to the code block to make it multi-line. This is expected though, as the lexical code block is a block node and cannot be inline.
     },
     {
-      html: '<pre spellcheck="false" data-language="javascript"><span style="white-space: pre-wrap;">Incomplete tag</span></pre>',
+      html: '<pre spellcheck="false" data-language="javascript"><span>Incomplete tag</span></pre>',
       md: '```javascript Incomplete tag',
       skipExport: true,
     },
     {
       html:
-        '<pre spellcheck="false" data-language="javascript"><span style="white-space: pre-wrap;">Incomplete multiline\n' +
+        '<pre spellcheck="false" data-language="javascript"><span>Incomplete multiline\n' +
         '\n' +
         'Tag</span></pre>',
       md: '```javascript Incomplete multiline\n\nTag',
       skipExport: true,
     },
     {
-      html: '<pre spellcheck="false"><span style="white-space: pre-wrap;">Code</span></pre>',
+      html: '<pre spellcheck="false"><span>Code</span></pre>',
       md: '```\nCode\n```',
     },
     {
-      html: '<pre spellcheck="false" data-language="javascript"><span style="white-space: pre-wrap;">Code</span></pre>',
+      html: '<pre spellcheck="false" data-language="javascript"><span>Code</span></pre>',
       md: '```javascript\nCode\n```',
     },
     {
       // Should always preserve language in md but keep data-highlight-language only for supported languages
-      html: '<pre spellcheck="false" data-language="unknown"><span style="white-space: pre-wrap;">Code</span></pre>',
+      html: '<pre spellcheck="false" data-language="unknown"><span>Code</span></pre>',
       md: '```unknown\nCode\n```',
     },
     {
       // Import only: prefix tabs will be removed for export
-      html: '<pre spellcheck="false"><span style="white-space: pre-wrap;">Code</span></pre>',
+      html: '<pre spellcheck="false"><span>Code</span></pre>',
       md: '\t```\nCode\n```',
       skipExport: true,
     },
     {
       // Import only: prefix spaces will be removed for export
-      html: '<pre spellcheck="false"><span style="white-space: pre-wrap;">Code</span></pre>',
+      html: '<pre spellcheck="false"><span>Code</span></pre>',
       md: '   ```\nCode\n```',
       skipExport: true,
     },
     {
-      html: `<h3><span style="white-space: pre-wrap;">Code blocks</span></h3><pre spellcheck="false" data-language="javascript"><span style="white-space: pre-wrap;">1 + 1 = 2;</span></pre>`,
+      html: `<h3><span>Code blocks</span></h3><pre spellcheck="false" data-language="javascript"><span>1 + 1 = 2;</span></pre>`,
       md: `### Code blocks
 
 \`\`\`javascript
@@ -523,20 +523,20 @@ describe('Markdown', () => {
     },
     {
       // Import only: extra empty lines will be removed for export
-      html: '<p><span style="white-space: pre-wrap;">Hello</span></p><p><span style="white-space: pre-wrap;">world</span></p>',
+      html: '<p><span>Hello</span></p><p><span>world</span></p>',
       md: ['Hello', '', '', '', 'world'].join('\n'),
       skipExport: true,
     },
     {
       // https://spec.commonmark.org/dingus/?text=%3E%20Hello%0Aworld%0A!
-      html: '<blockquote><span style="white-space: pre-wrap;">Hello world !</span></blockquote>',
+      html: '<blockquote><span>Hello world !</span></blockquote>',
       md: '> Hello\nworld\n!',
       shouldMergeAdjacentLines: true,
       skipExport: true,
     },
     {
       // Import only: ensures that left side of splitText is processed for text match transformers
-      html: '<p><span style="white-space: pre-wrap;">Hello </span><a href="https://lexical.dev"><span style="white-space: pre-wrap;">world</span></a><span style="white-space: pre-wrap;">! Hello </span><mark style="white-space: pre-wrap;"><span>$world$</span></mark><span style="white-space: pre-wrap;">! </span><a href="https://lexical.dev"><span style="white-space: pre-wrap;">Hello</span></a><span style="white-space: pre-wrap;"> world! Hello </span><mark style="white-space: pre-wrap;"><span>$world$</span></mark><span style="white-space: pre-wrap;">!</span></p>',
+      html: '<p><span>Hello </span><a href="https://lexical.dev"><span>world</span></a><span>! Hello </span><mark>$world$</mark><span>! </span><a href="https://lexical.dev"><span>Hello</span></a><span> world! Hello </span><mark>$world$</mark><span>!</span></p>',
       md: `Hello [world](${URL})! Hello $world$! [Hello](${URL}) world! Hello $world$!`,
       skipExport: true,
     },
@@ -548,13 +548,13 @@ describe('Markdown', () => {
     },
     {
       customTransformers: [MDX_HTML_TRANSFORMER],
-      html: '<p><span style="white-space: pre-wrap;">Some HTML in mdx:</span></p><pre spellcheck="false" data-language="MyComponent"><span style="white-space: pre-wrap;">From HTML: Some Text</span></pre>',
+      html: '<p><span>Some HTML in mdx:</span></p><pre spellcheck="false" data-language="MyComponent"><span>From HTML: Some Text</span></pre>',
       md: 'Some HTML in mdx:\n\n<MyComponent>Some Text</MyComponent>',
       shouldMergeAdjacentLines: true,
     },
     {
       customTransformers: [MDX_HTML_TRANSFORMER],
-      html: '<p><span style="white-space: pre-wrap;">Some HTML in mdx:</span></p><pre spellcheck="false" data-language="MyComponent"><span style="white-space: pre-wrap;">From HTML: Line 1 Some Text</span></pre>',
+      html: '<p><span>Some HTML in mdx:</span></p><pre spellcheck="false" data-language="MyComponent"><span>From HTML: Line 1 Some Text</span></pre>',
       md: 'Some HTML in mdx:\n\n<MyComponent>Line 1\nSome Text</MyComponent>',
       shouldMergeAdjacentLines: true,
       skipExport: true,
@@ -562,148 +562,148 @@ describe('Markdown', () => {
     {
       customTransformers: [CODE_TAG_COUNTER_EXAMPLE],
       // Ensure special ``` code block supports nested code blocks
-      html: '<pre spellcheck="false" data-language="ts"><span style="white-space: pre-wrap;">Code\n```ts\nSub Code\n```</span></pre>',
+      html: '<pre spellcheck="false" data-language="ts"><span>Code\n```ts\nSub Code\n```</span></pre>',
       md: '```ts\nCode\n```ts\nSub Code\n```\n```',
       skipExport: true,
     },
     {
       customTransformers: [SIMPLE_INLINE_JSX_MATCHER],
-      html: '<p><span style="white-space: pre-wrap;">Hello </span><a href="https://simple-jsx"><span style="white-space: pre-wrap;">One &lt;MyTag&gt;Two&lt;/MyTag&gt;</span></a><span style="white-space: pre-wrap;"> there</span></p>',
+      html: '<p><span>Hello </span><a href="https://simple-jsx"><span>One &lt;MyTag&gt;Two&lt;/MyTag&gt;</span></a><span> there</span></p>',
       md: 'Hello <MyTag>One <MyTag>Two</MyTag></MyTag> there',
       skipExport: true,
     },
     {
-      html: '<p><a href="https://lexical.dev"><span style="white-space: pre-wrap;">text</span></a></p>',
+      html: '<p><a href="https://lexical.dev"><span>text</span></a></p>',
       md: '[text](https://lexical.dev)',
     },
     {
-      html: '<p><code spellcheck="false" style="white-space: pre-wrap;"><span>text</span></code></p>',
+      html: '<p><code spellcheck="false">text</code></p>',
       md: '`text`',
     },
     {
-      html: '<p><a href="https://lexical.dev"><code spellcheck="false" style="white-space: pre-wrap;"><span>text</span></code></a></p>',
+      html: '<p><a href="https://lexical.dev"><code spellcheck="false">text</code></a></p>',
       md: '[`text`](https://lexical.dev)',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">Bold</strong></b><span style="white-space: pre-wrap;"> </span><a href="https://lexical.dev"><code spellcheck="false" style="white-space: pre-wrap;"><span>text</span></code></a><span style="white-space: pre-wrap;"> </span><b><strong style="white-space: pre-wrap;">Bold 2</strong></b></p>',
+      html: '<p><strong>Bold</strong><span> </span><a href="https://lexical.dev"><code spellcheck="false">text</code></a><span> </span><strong>Bold 2</strong></p>',
       md: '**Bold** [`text`](https://lexical.dev) **Bold 2**',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">Bold</strong></b><span style="white-space: pre-wrap;"> </span><a href="https://lexical.dev"><code spellcheck="false" style="white-space: pre-wrap;"><span>text</span></code><span style="white-space: pre-wrap;"> </span><b><strong style="white-space: pre-wrap;">Bold 2</strong></b></a><span style="white-space: pre-wrap;"> </span><b><strong style="white-space: pre-wrap;">Bold 3</strong></b></p>',
+      html: '<p><strong>Bold</strong><span> </span><a href="https://lexical.dev"><code spellcheck="false">text</code><span> </span><strong>Bold 2</strong></a><span> </span><strong>Bold 3</strong></p>',
       md: '**Bold** [`text` **Bold 2**](https://lexical.dev) **Bold 3**',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">Bold</strong></b><span style="white-space: pre-wrap;"> </span><a href="https://lexical.dev"><code spellcheck="false" style="white-space: pre-wrap;"><span>text **Bold in code**</span></code></a><span style="white-space: pre-wrap;"> </span><b><strong style="white-space: pre-wrap;">Bold 3</strong></b></p>',
+      html: '<p><strong>Bold</strong><span> </span><a href="https://lexical.dev"><code spellcheck="false">text **Bold in code**</code></a><span> </span><strong>Bold 3</strong></p>',
       md: '**Bold** [`text **Bold in code**`](https://lexical.dev) **Bold 3**',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">Bold</strong></b><span style="white-space: pre-wrap;"> </span><code spellcheck="false" style="white-space: pre-wrap;"><span>[text](https://lexical.dev)</span></code><span style="white-space: pre-wrap;"> </span><b><strong style="white-space: pre-wrap;">Bold 3</strong></b></p>',
+      html: '<p><strong>Bold</strong><span> </span><code spellcheck="false">[text](https://lexical.dev)</code><span> </span><strong>Bold 3</strong></p>',
       md: '**Bold** `[text](https://lexical.dev)` **Bold 3**',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">Text </span><b><strong style="white-space: pre-wrap;">boldstart </strong></b><a href="https://lexical.dev"><b><strong style="white-space: pre-wrap;">text</strong></b></a><b><strong style="white-space: pre-wrap;"> boldend</strong></b><span style="white-space: pre-wrap;"> text</span></p>',
+      html: '<p><span>Text </span><strong>boldstart </strong><a href="https://lexical.dev"><strong>text</strong></a><strong> boldend</strong><span> text</span></p>',
       md: 'Text **boldstart [text](https://lexical.dev) boldend** text',
       mdAfterExport:
         'Text **boldstart&#32;[text](https://lexical.dev)&#32;boldend** text',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">Text </span><b><strong style="white-space: pre-wrap;">boldstart </strong></b><a href="https://lexical.dev"><b><code spellcheck="false" style="white-space: pre-wrap;"><strong>text</strong></code></b></a><b><strong style="white-space: pre-wrap;"> boldend</strong></b><span style="white-space: pre-wrap;"> text</span></p>',
+      html: '<p><span>Text </span><strong>boldstart </strong><a href="https://lexical.dev"><strong><code spellcheck="false">text</code></strong></a><strong> boldend</strong><span> text</span></p>',
       md: 'Text **boldstart [`text`](https://lexical.dev) boldend** text',
       mdAfterExport:
         'Text **boldstart&#32;[`text`](https://lexical.dev)&#32;boldend** text',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">It </span><s><i><b><strong style="white-space: pre-wrap;">works </strong></b></i></s><a href="https://lexical.io"><s><i><b><strong style="white-space: pre-wrap;">with links</strong></b></i></s></a><span style="white-space: pre-wrap;"> too</span></p>',
+      html: '<p><span>It </span><s><strong><em>works </em></strong></s><a href="https://lexical.io"><s><strong><em>with links</em></strong></s></a><span> too</span></p>',
       md: 'It ~~___works [with links](https://lexical.io)___~~ too',
       mdAfterExport:
         'It ***~~works&#32;[with links](https://lexical.io)~~*** too',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">It </span><s><i><b><strong style="white-space: pre-wrap;">works </strong></b></i></s><a href="https://lexical.io"><s><i><b><strong style="white-space: pre-wrap;">with links</strong></b></i></s></a><s><i><b><strong style="white-space: pre-wrap;"> too</strong></b></i></s><span style="white-space: pre-wrap;">!</span></p>',
+      html: '<p><span>It </span><s><strong><em>works </em></strong></s><a href="https://lexical.io"><s><strong><em>with links</em></strong></s></a><s><strong><em> too</em></strong></s><span>!</span></p>',
       md: 'It ~~___works [with links](https://lexical.io) too___~~!',
       mdAfterExport:
         'It ***~~works&#32;[with links](https://lexical.io)&#32;too~~***!',
     },
     {
-      html: '<p><a href="https://lexical.dev"><span style="white-space: pre-wrap;">link</span></a><a href="https://lexical.dev"><span style="white-space: pre-wrap;">link2</span></a></p>',
+      html: '<p><a href="https://lexical.dev"><span>link</span></a><a href="https://lexical.dev"><span>link2</span></a></p>',
       md: '[link](https://lexical.dev)[link2](https://lexical.dev)',
     },
     {
       // Import only: <mark>...</mark> is exported as ==...== in markdown.
       // Use HIGHLIGHT_TEXT_MATCH_IMPORT as custom transformer even though it is included later to ensure it runs before LINK.
       customTransformers: [HIGHLIGHT_TEXT_MATCH_IMPORT],
-      html: '<p><span style="white-space: pre-wrap;">Multiple </span><a href="https://lexical.dev"><code spellcheck="false" style="white-space: pre-wrap;"><span>TextMatchTransformer</span></code><span style="white-space: pre-wrap;">s</span></a><s><mark style="white-space: pre-wrap;"><span>$ with formatting$</span></mark></s></p>',
+      html: '<p><span>Multiple </span><a href="https://lexical.dev"><code spellcheck="false">TextMatchTransformer</code><span>s</span></a><s><mark>$ with formatting$</mark></s></p>',
       md: 'Multiple [`TextMatchTransformer`s](https://lexical.dev)~~$ with formatting$~~',
       skipExport: true,
     },
     {
-      html: '<p><b><code spellcheck="false" style="white-space: pre-wrap;"><strong>Bold Code</strong></code></b></p>',
+      html: '<p><strong><code spellcheck="false">Bold Code</code></strong></p>',
       md: '**`Bold Code`**',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">This is a backslash: \\</span></p>',
+      html: '<p><span>This is a backslash: \\</span></p>',
       md: 'This is a backslash: \\\\',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">This is an asterisk: *</span></p>',
+      html: '<p><span>This is an asterisk: *</span></p>',
       md: 'This is an asterisk: \\*',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">Backtick and asterisk: `**`</span></p>',
+      html: '<p><span>Backtick and asterisk: `**`</span></p>',
       md: 'Backtick and asterisk: \\`\\*\\*\\`',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">Backtick and asterisk: `**`</strong></b></p>',
+      html: '<p><strong>Backtick and asterisk: `**`</strong></p>',
       md: '**Backtick and asterisk: \\`\\*\\*\\`**',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">*test*</strong></b></p>',
+      html: '<p><strong>*test*</strong></p>',
       md: '**\\*test\\***',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">some bold text with an escaped star: *</strong></b><span style="white-space: pre-wrap;"> normal text</span></p>',
+      html: '<p><strong>some bold text with an escaped star: *</strong><span> normal text</span></p>',
       md: '**some bold text with an escaped star: \\*** normal text',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">*This text should </span><b><strong style="white-space: pre-wrap;">not</strong></b><span style="white-space: pre-wrap;"> be italic*</span></p>',
+      html: '<p><span>*This text should </span><strong>not</strong><span> be italic*</span></p>',
       md: '\\*This text should **not** be italic*',
       mdAfterExport: '\\*This text should **not** be italic\\*',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">*some text*</span></p>',
+      html: '<p><span>*some text*</span></p>',
       md: '\\*some text*',
       mdAfterExport: '\\*some text\\*',
     },
     {
-      html: '<p><a href="https://lexical.dev"><span style="white-space: pre-wrap;">text </span><b><strong style="white-space: pre-wrap;">bold</strong></b><span style="white-space: pre-wrap;"> *normal*</span></a></p>',
+      html: '<p><a href="https://lexical.dev"><span>text </span><strong>bold</strong><span> *normal*</span></a></p>',
       md: '[text **bold** \\*normal\\*](https://lexical.dev)',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">*Hello* world</span></p>',
+      html: '<p><span>*Hello* world</span></p>',
       md: '\\*Hello\\* world',
     },
     {
-      html: '<p><b><strong style="white-space: pre-wrap;">&nbsp;</strong></b></p>',
+      html: '<p><strong>&nbsp;</strong></p>',
       md: '**&#160;**',
     },
     {
-      html: '<p><a href="https://lexical.dev"><span style="white-space: pre-wrap;">[h]ello</span></a><a href="https://lexical.dev"><span style="white-space: pre-wrap;">h[e]llo</span></a></p>',
+      html: '<p><a href="https://lexical.dev"><span>[h]ello</span></a><a href="https://lexical.dev"><span>h[e]llo</span></a></p>',
       md: '[[h]ello](https://lexical.dev)[h[e]llo](https://lexical.dev)',
     },
     {
-      html: '<p><a href="https://lexical.dev"><span style="white-space: pre-wrap;">h[e[ll]]o</span></a><a href="https://lexical.dev"><span style="white-space: pre-wrap;">world</span></a></p>',
+      html: '<p><a href="https://lexical.dev"><span>h[e[ll]]o</span></a><a href="https://lexical.dev"><span>world</span></a></p>',
       md: '[h[e[ll]]o](https://lexical.dev)[world](https://lexical.dev)',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">[hello]](https://lexical.dev)</span><a href="https://lexical.dev"><span style="white-space: pre-wrap;">world</span></a></p>',
+      html: '<p><span>[hello]](https://lexical.dev)</span><a href="https://lexical.dev"><span>world</span></a></p>',
       md: '[hello]](https://lexical.dev)[world](https://lexical.dev)',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">[h</span><a href="https://lexical.dev"><span style="white-space: pre-wrap;">ello</span></a><a href="https://lexical.dev"><span style="white-space: pre-wrap;">world</span></a></p>',
+      html: '<p><span>[h</span><a href="https://lexical.dev"><span>ello</span></a><a href="https://lexical.dev"><span>world</span></a></p>',
       md: '[h[ello](https://lexical.dev)[world](https://lexical.dev)',
     },
     {
-      html: '<p><span style="white-space: pre-wrap;">[](https://lexical.dev)</span></p>',
+      html: '<p><span>[](https://lexical.dev)</span></p>',
       md: '[](https://lexical.dev)',
     },
   ];
@@ -895,7 +895,7 @@ describe('Markdown', () => {
     );
 
     expect(editor.read(() => $generateHtmlFromNodes(editor))).toBe(
-      '<p><span style="white-space: pre-wrap;"># </span></p>',
+      '<p><span># </span></p>',
     );
   });
 

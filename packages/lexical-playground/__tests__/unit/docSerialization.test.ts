@@ -53,22 +53,22 @@ describe('docSerialization', () => {
         const {editor} = testEnv;
         const parser = new DOMParser();
         const htmlString = `<p class="PlaygroundEditorTheme__paragraph" dir="auto">
-  <span style="white-space: pre-wrap;">paragraph</span>
+  <span>paragraph</span>
 </p>
 <h1 class="PlaygroundEditorTheme__h1" dir="auto">
-  <span style="white-space: pre-wrap;">heading</span>
+  <span>heading</span>
 </h1>
 <blockquote class="PlaygroundEditorTheme__quote" dir="auto">
-  <span style="white-space: pre-wrap;">quote</span>
+  <span>quote</span>
 </blockquote>
 <p class="PlaygroundEditorTheme__paragraph" dir="auto" style="padding-inline-start: 80px;">
-  <span style="white-space: pre-wrap;">paragraph</span>
+  <span>paragraph</span>
 </p>
 <h1 class="PlaygroundEditorTheme__h1" dir="auto" style="padding-inline-start: 80px;">
-  <span style="white-space: pre-wrap;">heading</span>
+  <span>heading</span>
 </h1>
 <blockquote class="PlaygroundEditorTheme__quote" dir="auto" style="padding-inline-start: 80px;">
-  <span style="white-space: pre-wrap;">quote</span>
+  <span>quote</span>
 </blockquote>`;
         const dom = parser.parseFromString(htmlString, 'text/html');
         await editor.update(() => {
@@ -210,7 +210,7 @@ describe('docSerialization', () => {
           htmlString2 = $generateHtmlFromNodes(editor);
         });
         expect(htmlString2).toBe(
-          '<p><span style="white-space: pre-wrap;">paragraph</span></p><h1><span style="white-space: pre-wrap;">heading</span></h1><blockquote><span style="white-space: pre-wrap;">quote</span></blockquote><p style="padding-inline-start: 80px;"><span style="white-space: pre-wrap;">paragraph</span></p><h1 style="padding-inline-start: 80px;"><span style="white-space: pre-wrap;">heading</span></h1><blockquote style="padding-inline-start: 80px;"><span style="white-space: pre-wrap;">quote</span></blockquote>',
+          '<p><span>paragraph</span></p><h1><span>heading</span></h1><blockquote><span>quote</span></blockquote><p style="padding-inline-start: 80px;"><span>paragraph</span></p><h1 style="padding-inline-start: 80px;"><span>heading</span></h1><blockquote style="padding-inline-start: 80px;"><span>quote</span></blockquote>',
         );
       });
     });

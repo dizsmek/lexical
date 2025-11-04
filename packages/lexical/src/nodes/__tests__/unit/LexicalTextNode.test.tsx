@@ -942,10 +942,14 @@ describe('LexicalTextNode tests', () => {
         IS_BOLD | IS_LOWERCASE,
         'Sample Text',
         (element: HTMLElement) => {
-          expect(element.tagName.toLowerCase()).toBe('b');
-          // We need to check the child element for the style
-          const childElement = element.firstChild as HTMLElement;
-          expect(childElement.style.textTransform).toBe('lowercase');
+          expect(element.tagName.toLowerCase()).toBe('strong');
+          // The style should be on the innermost element (span in this case)
+          // Bold wraps the span: <strong><span style="...">text</span></strong>
+          const innerElement = element.querySelector('span');
+          expect(innerElement).not.toBeNull();
+          if (innerElement) {
+            expect(innerElement.style.textTransform).toBe('lowercase');
+          }
         },
       ],
     ])('%s', async (_type, format, contents, elementCheck) => {

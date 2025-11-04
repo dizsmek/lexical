@@ -81,7 +81,7 @@ describe('ImageNode HTML serialization', () => {
                     src="/test/image.jpg"
                     width="inherit" />
                   <figcaption>
-                    <span style="white-space: pre-wrap">caption text</span>
+                    <span>caption text</span>
                   </figcaption>
                 </figure>
               </div>

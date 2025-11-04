@@ -305,7 +305,7 @@ describe('LexicalTableNode tests', () => {
                             text-align: start;
                             background-color: rgb(242, 243, 245);
                           ">
-                          <p><span style="white-space: pre-wrap">0</span></p>
+                          <p><span>0</span></p>
                         </th>
                         <th
                           style="
@@ -315,7 +315,7 @@ describe('LexicalTableNode tests', () => {
                             text-align: start;
                             background-color: rgb(242, 243, 245);
                           ">
-                          <p><span style="white-space: pre-wrap">1</span></p>
+                          <p><span>1</span></p>
                         </th>
                       </tr>
                       <tr>
@@ -327,7 +327,7 @@ describe('LexicalTableNode tests', () => {
                             text-align: start;
                             background-color: rgb(242, 243, 245);
                           ">
-                          <p><span style="white-space: pre-wrap">2</span></p>
+                          <p><span>2</span></p>
                         </th>
                         <td
                           style="
@@ -336,7 +336,7 @@ describe('LexicalTableNode tests', () => {
                             vertical-align: top;
                             text-align: start;
                           ">
-                          <p><span style="white-space: pre-wrap">3</span></p>
+                          <p><span>3</span></p>
                         </td>
                       </tr>
                     </tbody>
@@ -381,7 +381,7 @@ describe('LexicalTableNode tests', () => {
                             text-align: start;
                             background-color: rgb(242, 243, 245);
                           ">
-                          <p><span style="white-space: pre-wrap">1</span></p>
+                          <p><span>1</span></p>
                         </th>
                       </tr>
                       <tr>
@@ -392,7 +392,7 @@ describe('LexicalTableNode tests', () => {
                             vertical-align: top;
                             text-align: start;
                           ">
-                          <p><span style="white-space: pre-wrap">3</span></p>
+                          <p><span>3</span></p>
                         </td>
                       </tr>
                     </tbody>

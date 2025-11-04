@@ -208,9 +208,7 @@ describe('LexicalHeadlessEditor', () => {
 
     cleanup();
 
-    expect(html).toBe(
-      '<p dir="ltr"><span style="white-space: pre-wrap;">hello world</span></p>',
-    );
+    expect(html).toBe('<p dir="ltr"><span>hello world</span></p>');
   });
 
   describe('withDOM', () => {
@@ -234,9 +232,7 @@ describe('LexicalHeadlessEditor', () => {
           .read(() => $generateHtmlFromNodes(editor, null)),
       );
 
-      expect(html).toBe(
-        '<p dir="ltr"><span style="white-space: pre-wrap;">hello world</span></p>',
-      );
+      expect(html).toBe('<p dir="ltr"><span>hello world</span></p>');
     });
   });
 });

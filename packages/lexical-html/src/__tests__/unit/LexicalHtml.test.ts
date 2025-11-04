@@ -105,7 +105,7 @@ describe('HTML', () => {
       html = $generateHtmlFromNodes(editor, selection);
     });
 
-    expect(html).toBe('<span style="white-space: pre-wrap;">World</span>');
+    expect(html).toBe('<span>World</span>');
   });
 
   test(`[Lexical -> HTML]: Default selection (undefined) should serialize entire editor state`, () => {
@@ -148,9 +148,7 @@ describe('HTML', () => {
       html = $generateHtmlFromNodes(editor);
     });
 
-    expect(html).toBe(
-      '<p><span style="white-space: pre-wrap;">Hello</span></p><p><span style="white-space: pre-wrap;">World</span></p>',
-    );
+    expect(html).toBe('<p><span>Hello</span></p><p><span>World</span></p>');
   });
 
   test(`If alignment is set on the paragraph, don't overwrite from parent empty format`, () => {
@@ -179,7 +177,7 @@ describe('HTML', () => {
     });
 
     expect(html).toBe(
-      '<p style="text-align: center;"><span style="white-space: pre-wrap;">Hello world!</span></p>',
+      '<p style="text-align: center;"><span>Hello world!</span></p>',
     );
   });
 
@@ -209,7 +207,7 @@ describe('HTML', () => {
     });
 
     expect(html).toBe(
-      '<p style="text-align: center;"><span style="white-space: pre-wrap;">Hello world!</span></p>',
+      '<p style="text-align: center;"><span>Hello world!</span></p>',
     );
   });
 
@@ -258,8 +256,6 @@ describe('HTML', () => {
       html = $generateHtmlFromNodes(editor);
     });
 
-    expect(html).toBe(
-      '<span style="white-space: pre-wrap;">Hello</span><span style="white-space: pre-wrap;">World</span>',
-    );
+    expect(html).toBe('<span>Hello</span><span>World</span>');
   });
 });

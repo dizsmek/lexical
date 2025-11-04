@@ -38,24 +38,21 @@ describe('LexicalUtils#splitNode', () => {
   }> = [
     {
       _: 'split paragraph in between two text nodes',
-      expectedHtml:
-        '<p><span style="white-space: pre-wrap;">Hello</span></p><p><span style="white-space: pre-wrap;">world</span></p>',
+      expectedHtml: '<p><span>Hello</span></p><p><span>world</span></p>',
       initialHtml: '<p><span>Hello</span><span>world</span></p>',
       splitOffset: 1,
       splitPath: [0],
     },
     {
       _: 'split paragraph before the first text node',
-      expectedHtml:
-        '<p><br></p><p><span style="white-space: pre-wrap;">Hello</span><span style="white-space: pre-wrap;">world</span></p>',
+      expectedHtml: '<p><br></p><p><span>Hello</span><span>world</span></p>',
       initialHtml: '<p><span>Hello</span><span>world</span></p>',
       splitOffset: 0,
       splitPath: [0],
     },
     {
       _: 'split paragraph after the last text node',
-      expectedHtml:
-        '<p><span style="white-space: pre-wrap;">Hello</span><span style="white-space: pre-wrap;">world</span></p><p><br></p>',
+      expectedHtml: '<p><span>Hello</span><span>world</span></p><p><br></p>',
       initialHtml: '<p><span>Hello</span><span>world</span></p>',
       splitOffset: 2, // Any offset that is higher than children size
       splitPath: [0],
@@ -63,8 +60,8 @@ describe('LexicalUtils#splitNode', () => {
     {
       _: 'split list items between two text nodes',
       expectedHtml:
-        '<ul><li><span style="white-space: pre-wrap;">Hello</span></li></ul>' +
-        '<ul><li><span style="white-space: pre-wrap;">world</span></li></ul>',
+        '<ul><li><span>Hello</span></li></ul>' +
+        '<ul><li><span>world</span></li></ul>',
       initialHtml: '<ul><li><span>Hello</span><span>world</span></li></ul>',
       splitOffset: 1, // Any offset that is higher than children size
       splitPath: [0, 0],
@@ -73,7 +70,7 @@ describe('LexicalUtils#splitNode', () => {
       _: 'split list items before the first text node',
       expectedHtml:
         '<ul><li></li></ul>' +
-        '<ul><li><span style="white-space: pre-wrap;">Hello</span><span style="white-space: pre-wrap;">world</span></li></ul>',
+        '<ul><li><span>Hello</span><span>world</span></li></ul>',
       initialHtml: '<ul><li><span>Hello</span><span>world</span></li></ul>',
       splitOffset: 0, // Any offset that is higher than children size
       splitPath: [0, 0],
@@ -82,12 +79,12 @@ describe('LexicalUtils#splitNode', () => {
       _: 'split nested list items',
       expectedHtml:
         '<ul>' +
-        '<li><span style="white-space: pre-wrap;">Before</span></li>' +
-        '<li><ul><li><span style="white-space: pre-wrap;">Hello</span></li></ul></li>' +
+        '<li><span>Before</span></li>' +
+        '<li><ul><li><span>Hello</span></li></ul></li>' +
         '</ul>' +
         '<ul>' +
-        '<li><ul><li><span style="white-space: pre-wrap;">world</span></li></ul></li>' +
-        '<li><span style="white-space: pre-wrap;">After</span></li>' +
+        '<li><ul><li><span>world</span></li></ul></li>' +
+        '<li><span>After</span></li>' +
         '</ul>',
       initialHtml:
         '<ul>' +

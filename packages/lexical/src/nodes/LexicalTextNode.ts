@@ -641,14 +641,61 @@ export class TextNode extends LexicalNode {
   // for headless mode where people might use Lexical to generate
   // HTML content and not have the ability to use CSS classes.
   exportDOM(editor: LexicalEditor): DOMExportOutput {
-    let {element} = super.exportDOM(editor);
-    invariant(
-      isHTMLElement(element),
-      'Expected TextNode createDOM to always return a HTMLElement',
-    );
-    element.style.whiteSpace = 'pre-wrap';
+    const format = this.__format;
+    const style = this.__style;
+    const text = this.__text;
 
-    // Add text-transform styles for capitalization formats
+    // Create a stack of tags to wrap, outermost first
+    const tags: string[] = [];
+
+    // Add text formatting tags (outermost to innermost)
+    if (format & IS_STRIKETHROUGH) {
+      tags.push('s');
+    }
+    if (format & IS_UNDERLINE) {
+      tags.push('u');
+    }
+    if (format & IS_BOLD) {
+      tags.push('strong');
+    }
+    if (format & IS_ITALIC) {
+      tags.push('em');
+    }
+
+    // Add special format tags (these go innermost)
+    if (format & IS_CODE) {
+      tags.push('code');
+    } else if (format & IS_HIGHLIGHT) {
+      tags.push('mark');
+    } else if (format & IS_SUBSCRIPT) {
+      tags.push('sub');
+    } else if (format & IS_SUPERSCRIPT) {
+      tags.push('sup');
+    } else if (
+      style !== '' ||
+      this.hasFormat('lowercase') ||
+      this.hasFormat('uppercase') ||
+      this.hasFormat('capitalize')
+    ) {
+      // Need a span to hold custom styles or text-transform
+      tags.push('span');
+    }
+
+    // If no formatting tags at all, use span
+    if (tags.length === 0) {
+      tags.push('span');
+    }
+
+    // Create the innermost element (last tag in array)
+    let element: HTMLElement = document.createElement(tags[tags.length - 1]);
+    element.textContent = text;
+
+    // Apply custom inline styles if present (only on innermost element)
+    if (style !== '') {
+      element.style.cssText = style;
+    }
+
+    // Add text-transform styles for capitalization formats (only on innermost element)
     if (this.hasFormat('lowercase')) {
       element.style.textTransform = 'lowercase';
     } else if (this.hasFormat('uppercase')) {
@@ -657,20 +704,14 @@ export class TextNode extends LexicalNode {
       element.style.textTransform = 'capitalize';
     }
 
-    // This is the only way to properly add support for most clients,
-    // even if it's semantically incorrect to have to resort to using
-    // <b>, <u>, <s>, <i> elements.
-    if (this.hasFormat('bold')) {
-      element = wrapElementWith(element, 'b');
+    // Apply code spellcheck attribute
+    if (this.hasFormat('code')) {
+      element.setAttribute('spellcheck', 'false');
     }
-    if (this.hasFormat('italic')) {
-      element = wrapElementWith(element, 'i');
-    }
-    if (this.hasFormat('strikethrough')) {
-      element = wrapElementWith(element, 's');
-    }
-    if (this.hasFormat('underline')) {
-      element = wrapElementWith(element, 'u');
+
+    // Wrap with remaining tags from innermost to outermost
+    for (let i = tags.length - 2; i >= 0; i--) {
+      element = wrapElementWith(element, tags[i]);
     }
 
     return {
